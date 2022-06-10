@@ -1,0 +1,10 @@
+menu "Example Configuration"
+
+    config BLINK_GPIO
+        int "Blink GPIO number"
+        range 0 34
+        default 25
+        help
+            GPIO numero (IO25) parpadea.
+
+endmenu
