@@ -1,0 +1,69 @@
+menu "SSD1306 Configuration"
+
+	choice INTERFACE
+		prompt "Interface"
+		default I2C_INTERFACE
+		help
+			Select Interface.
+		config I2C_INTERFACE
+			bool "I2C Interface"
+			help
+				I2C Interface.
+		config SPI_INTERFACE
+			bool "SPI Interface"
+			help
+				SPI Interface.
+	endchoice
+
+	config OFFSETX
+		int "GRAM X OFFSET"
+		range 0 99
+		default 0
+		help
+			When your TFT have offset(X), set it.
+
+	config FLIP
+		bool "Flip upside down"
+		default false
+		help
+			Flip upside down.
+
+	config SCL_GPIO
+		depends on I2C_INTERFACE
+		int "SCL GPIO number"
+		range 0 46
+		default 15 if IDF_TARGET_ESP32
+		default 12 if IDF_TARGET_ESP32S2
+		default 9  if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to I2C SCL.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to I2C.
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	config SDA_GPIO
+		depends on I2C_INTERFACE
+		int "SDA GPIO number"
+		range 0 46
+		default 4 if IDF_TARGET_ESP32
+		default 11 if IDF_TARGET_ESP32S2
+		default 10 if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to I2C SDA.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to I2C.
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	config RESET_GPIO
+		int "RESET GPIO number"
+		range -1 46
+		default 16
+		help
+			GPIO number (IOxx) to RESET.
+			When it is -1, RESET isn't performed.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to Reset.
+			GPIOs 35-39 are input-only so cannot be used as outputs.
+
+	
+
+
+endmenu
+
