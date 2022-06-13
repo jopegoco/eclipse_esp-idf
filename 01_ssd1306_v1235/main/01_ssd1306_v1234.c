@@ -9,6 +9,7 @@
 
 void tarea_ssd1306(void *pvParameter) {
 	uint8_t L = 16;	//Numero maximo de caracteres por fila
+	uint8_t contraste = 0x10;	//contraste del display
 	char str[L + 1]; //para guardar el string de cada fila
 	float v1, v2, v3, v4;
 	SSD1306_t dev;
@@ -16,7 +17,7 @@ void tarea_ssd1306(void *pvParameter) {
 	ssd1306_init(&dev, 128, 64);
 
 	ssd1306_clear_screen(&dev, false);
-	ssd1306_contrast(&dev, 0xff);
+	ssd1306_contrast(&dev, contraste); //ajuste de contraste
 
 	ssd1306_display_text(&dev, 0, "  VALOR MEDIDO  ", 16, true); //PONGO EL TITULO
 
