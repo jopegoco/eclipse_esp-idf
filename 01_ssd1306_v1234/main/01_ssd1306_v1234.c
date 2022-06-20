@@ -48,8 +48,8 @@ void tarea_ssd1306(void *pvParameter) {
 }
 
 void app_main(void) {
-	//xTaskCreate(&tarea_ssd1306, "tarea_ssd1306", 4096, NULL, 5, NULL);
-
+	xTaskCreate(&tarea_ssd1306, "tarea_ssd1306", 4096, NULL, 5, NULL);
+/*
 	uint8_t L = 16;	//Numero maximo de caracteres por fila
 	uint8_t contraste = 0x10;	//contraste del display
 	char str[L + 1]; //para guardar el string de cada fila
@@ -86,5 +86,5 @@ void app_main(void) {
 	memset(str, ' ', L);							//limpio str
 	sprintf(str, "V4: %0.4f", v4);	//V4 a string en str con el formato indicado
 	ssd1306_display_text(&dev, 7, str, 16, false);	//Agrego str(V4) a OLED
-
+*/
 }
