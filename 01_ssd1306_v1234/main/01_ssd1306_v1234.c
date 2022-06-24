@@ -8,9 +8,9 @@
 #define tag "SSD1306"
 
 void tarea_ssd1306(void *pvParameter) {
-	uint8_t L = 16;	//Numero maximo de caracteres por fila
+	const uint8_t L = 16;	//Numero maximo de caracteres por fila
 	uint8_t contraste = 0x10;	//contraste del display
-	char str[L + 1]; //para guardar el string de cada fila
+	char str[L + 1]; //char[] debe finalizar con un caracter null (\0)
 	float v1, v2, v3, v4;
 	SSD1306_t dev;
 	i2c_master_init(&dev, CONFIG_SDA_GPIO, CONFIG_SCL_GPIO, CONFIG_RESET_GPIO);
