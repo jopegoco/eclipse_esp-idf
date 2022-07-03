@@ -1,0 +1,22 @@
+
+-----SSD1306 Controlador de display OLED-----
+
+direccion I2c (0x3c) en linea 71 de ssd1306.h
+
+Controlador I2C (Puerto I2C) en la linea 13 de ssd1306_i2c.c
+
+frecuencia  I2C (1Mhz) en la linea 15 de ssd1306_i2c.c
+
+GPIO`s para SDA (4) y SCL (15) en el archivo Kconfig.projbuild
+
+_____________________________________________________
+
+-----MCP3424 Convertidor A/D de 18 bit-----
+
+direccion I2c en linea 30 (0x68) del archivo 02d_i2c_mcp3424_ch1234.c
+
+Controlador I2C (Puerto I2C) en la linea 7 en el archivo 02d_i2c_mcp3424_ch1234.c
+
+frecuencia  I2C (1Mhz)  en la linea 44 del archivo mcp342x.c
+
+GPIO`s para SDA (21), SCL (22) en las lineas 9 y 10 del archivo 02d_i2c_mcp3424_ch1234.c
